@@ -6,4 +6,4 @@ The only supported versions are only the most recent ones
 
 ## Reporting a Vulnerability
 
-Send a email to SomeFlyingThing@protonmail.com
+Send an email to 326617346+CosmicalBit@users.noreply.github.com
