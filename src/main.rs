@@ -34,7 +34,7 @@ fn generate_path() -> Option<PathBuf> {
 }
 
 fn main() -> anyhow::Result<()> {
-    let args = parse().map_err(|_error| io::Error::new(io::ErrorKind::InvalidInput, "no args"))?;
+    let args = parse();
 
     let basep = generate_path().ok_or_else(|| io::Error::new(io::ErrorKind::InvalidData, "couldnt get homedir"))?;
 
