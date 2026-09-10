@@ -1,5 +1,7 @@
 use std::{fs, fs::OpenOptions, io, io::Write, path::Path};
 
+use rand::{Rng, random, random_ratio, rng};
+
 use crate::{
     encryption::{
         contents::Safe,
@@ -44,7 +46,9 @@ fn load_at(name: &str, pass: &Password<Derived>, safe_path: &Path) -> io::Result
     Ok((header, contents))
 }
 fn normal_attomic_write(path: &Path, contents: &[u8]) -> io::Result<()> {
-    let tmp = path.with_extension("tmp");
+    let num: u64 = rand::random();
+    let tmp = path.with_extension(num.to_string());
+    
     let mut file = OpenOptions::new().write(true).create(true).truncate(true).open(&tmp)?;
 
     file.write_all(contents)?;
